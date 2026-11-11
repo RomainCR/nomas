@@ -1,0 +1,22 @@
+{
+  "name": "nomas",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static poster site for NOMAS — 11–14 Juin 2027, Isère.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "preview": "npx --yes serve@14 out -l 4173"
+  },
+  "dependencies": {
+    "next": "16.4.6",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.0"
+  }
+}
