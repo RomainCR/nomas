@@ -150,7 +150,7 @@ export default function Character({ className }: { className?: string }) {
     (window as unknown as Record<string, unknown>).__nomasAudio = audio;
     audio.volume = 1;
 
-    const FADE_SECONDS = 15;
+    const FADE_SECONDS = 20;
     let fading = false;
     let fadeRaf = 0;
     let musicActive = false;
