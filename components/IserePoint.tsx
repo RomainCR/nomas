@@ -16,7 +16,7 @@ export default function IserePoint() {
     >
       <img
         className="iserepoint"
-        src="/assets/iserepoint.png"
+        src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/assets/iserepoint.png`}
         alt=""
         aria-hidden="true"
       />

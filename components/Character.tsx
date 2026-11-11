@@ -146,7 +146,9 @@ export default function Character({ className }: { className?: string }) {
 
     // Music: a press on the character plays the track; it starts fading out
     // (10 seconds) before the end of the track.
-    const audio = new Audio("/assets/media.mp4");
+    const audio = new Audio(
+      `${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/assets/media.mp4`,
+    );
     (window as unknown as Record<string, unknown>).__nomasAudio = audio;
     audio.volume = 1;
 
