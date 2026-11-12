@@ -127,7 +127,7 @@ export default function Character({ className }: { className?: string }) {
     const RADIUS2 = RADIUS * RADIUS;
     const STIFFNESS = 0.15;
     const DAMPING = 0.4;
-    const DRAG = 0.062;
+    const DRAG = 0.2;
     const TOUCH_DRAG = 0.18;
     const PUSH = 0.45;
     const POKE = 16;
@@ -356,9 +356,8 @@ export default function Character({ className }: { className?: string }) {
       }
 
       // Gentle floating while the music is playing (fades with the music).
-      const idleAmp = musicActive && audio.volume > 0 ? 2.5 * audio.volume : 0;
-      console.log("\n \n 🚀 ~ frame ~ idleAmp:", idleAmp);
-      console.log("\n \n 🚀 ~ frame ~ audio.volume:", audio.volume);
+      const idleAmp = musicActive && audio.volume > 0 ? 3 * audio.volume : 0;
+
       if (idleAmp > 0) {
         const ph = now * 0.0032;
         for (let i = 0; i < n; i++) {
