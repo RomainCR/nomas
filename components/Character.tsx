@@ -204,6 +204,40 @@ export default function Character({ className }: { className?: string }) {
       fadeRaf = requestAnimationFrame(tick);
     };
 
+    let tTitle: number | undefined;
+    let tIsere: number | undefined;
+
+    const startSequence = () => {
+      if (tTitle) window.clearTimeout(tTitle);
+      if (tIsere) window.clearTimeout(tIsere);
+      const lines = Array.from(
+        document.querySelectorAll<HTMLElement>(".credit p"),
+      );
+      tTitle = window.setTimeout(
+        () => lines[0]?.classList.add("visible"),
+        2000,
+      );
+      tIsere = window.setTimeout(
+        () => lines[1]?.classList.add("visible"),
+        4000,
+      );
+      const logo = document.querySelector<HTMLElement>(".logo");
+      if (logo) logo.classList.add("nomas-intro");
+    };
+
+    const resetSequence = () => {
+      if (tTitle) window.clearTimeout(tTitle);
+      if (tIsere) window.clearTimeout(tIsere);
+      tTitle = undefined;
+      tIsere = undefined;
+      document.querySelectorAll<HTMLElement>(".credit p").forEach((el) => {
+        el.classList.remove("visible");
+      });
+      document
+        .querySelector<HTMLElement>(".logo")
+        ?.classList.remove("nomas-intro");
+    };
+
     const playCharacterSound = () => {
       if (!isInsideCharacter(pointerX, pointerY)) return;
       if (audio.paused) {
@@ -214,6 +248,7 @@ export default function Character({ className }: { className?: string }) {
         musicActive = true;
         void audio.play().catch(() => {});
         scheduleFade();
+        startSequence();
       } else {
         // Click again while the music is playing -> stop the sound.
         stopFade();
@@ -225,6 +260,7 @@ export default function Character({ className }: { className?: string }) {
         audio.pause();
         audio.currentTime = 0;
         audio.volume = 1;
+        resetSequence();
       }
     };
 
