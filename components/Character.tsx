@@ -125,13 +125,13 @@ export default function Character({ className }: { className?: string }) {
     // Tuning (all distances in viewBox units, 1 unit ≈ 1px of the 720px artwork).
     const RADIUS = 120;
     const RADIUS2 = RADIUS * RADIUS;
-    const STIFFNESS = 0.15;
-    const DAMPING = 0.4;
-    const DRAG = 0.2;
-    const TOUCH_DRAG = 0.18;
+    const STIFFNESS = 0.08;
+    const DAMPING = 0.08;
+    const DRAG = 1.2;
+    const TOUCH_DRAG = 0.8;
     const PUSH = 0.45;
     const POKE = 16;
-    const MAX_VEL = 16;
+    const MAX_VEL = 24;
 
     // Face marks follow the head outline very slightly.
     let faceIndex = 0;
